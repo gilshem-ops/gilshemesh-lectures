@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gil Shemesh Lectures | Israel Unfiltered</title>
+    <meta name="description" content="Gil Shemesh ('Mr. Sunshine') brings a unique perspective on the Middle East’s changing reality, the Kibbutz ethos, and the humor found in resilience.">
+    
+    <!-- Tailwind CSS (via CDN for standalone usage) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Config for Tailwind colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b', 
+                            900: '#0f172a',
+                        },
+                        blue: {
+                            600: '#2563EB',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="scrollToSection('hero')">
+                    <span class="text-2xl font-bold text-slate-900 tracking-tight">GIL SHEMESH</span>
+                    <span class="ml-2 text-blue-600 font-medium">LECTURES</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="scrollToSection('about')" class="text-slate-600 hover:text-blue-600 transition font-medium">About</button>
+                    <button onclick="scrollToSection('lectures')" class="text-slate-600 hover:text-blue-600 transition font-medium">Lectures</button>
+                    <button onclick="scrollToSection('testimonials')" class="text-slate-600 hover:text-blue-600 transition font-medium">Testimonials</button>
+                    <button onclick="scrollToSection('contact')" class="bg-slate-900 text-white px-6 py-2 rounded-full hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-semibold">
+                        Book Now
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-8 h-8" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <button onclick="mobileNavClick('about')" class="block w-full text-left px-3 py-3 text-slate-600 font-medium border-b border-slate-50 hover:bg-slate-50">About</button>
+                <button onclick="mobileNavClick('lectures')" class="block w-full text-left px-3 py-3 text-slate-600 font-medium border-b border-slate-50 hover:bg-slate-50">Lectures</button>
+                <button onclick="mobileNavClick('contact')" class="block w-full text-left px-3 py-3 text-blue-600 font-bold mt-2 hover:bg-blue-50">Book a Lecture</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-20 pb-16 md:pt-32 md:pb-24 flex items-center justify-center min-h-[85vh] bg-slate-900 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 opacity-40">
+            <img src="https://images.unsplash.com/photo-1497910091122-9f8a7746eb33?q=80&w=2070&auto=format&fit=crop" alt="Gil Shemesh Speaking" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 font-semibold text-sm tracking-wider uppercase animate-fade-in-up">
+                Speaker • Educator • Storyteller
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                ISRAEL <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">UNFILTERED</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
+                Insight, History, & The Human Spirit.
+                <span class="block mt-2 text-slate-400 text-lg">
+                    Gil Shemesh ("Mr. Sunshine") brings a unique perspective on the Middle East’s changing reality.
+                </span>
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('contact')" class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg transition shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 group">
+                    Book Gil for Your Event <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button onclick="scrollToSection('lectures')" class="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-lg transition flex items-center justify-center">
+                    Explore Topics
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="relative mb-12 lg:mb-0">
+                    <div class="absolute top-4 left-4 w-full h-full bg-blue-50 rounded-2xl -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1544168190-79c11c14ee59?q=80&w=2070&auto=format&fit=crop" alt="Gil Shemesh Portrait" class="rounded-2xl shadow-xl w-full h-[500px] object-cover object-top">
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Meet Gil Shemesh</h2>
+                    <h3 class="text-xl text-blue-700 font-medium mb-6">"Humor is the best survival mechanism."</h3>
+                    <div class="space-y-4 text-lg text-slate-600 leading-relaxed">
+                        <p>Gil is a lecturer, educator, and a keen observer of Israeli society. With a background deeply rooted in the Kibbutz movement and years of experience guiding international audiences through the complexities of the land, Gil brings a rare combination of academic depth and relatable storytelling.</p>
+                        <p>Living in the north of Israel, he lives the geopolitical reality daily, translating it into engaging, thought-provoking, and often humorous talks.</p>
+                        <p>Whether speaking to university students, community leaders, or congregations, Gil's mission is simple: to shed light on the nuances of Israel that never make it to the headlines.</p>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-2 text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="text-blue-600 w-5 h-5"></i> Dynamic Speaker
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="text-blue-600 w-5 h-5"></i> Native English Content
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="text-blue-600 w-5 h-5"></i> Q&A Specialist
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="text-blue-600 w-5 h-5"></i> Zoom or In-Person
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lectures Section -->
+    <section id="lectures" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Speaking Topics</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                    Three distinct journeys. One engaging voice. Tailored for international audiences.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Lecture 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Middle East Map" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 p-2 rounded-lg z-20">
+                            <i data-lucide="map" class="text-slate-900 w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Decoding the Middle East</h3>
+                        <p class="text-sm font-semibold text-blue-600 mb-4 uppercase tracking-wide">The New Reality (2023-2025)</p>
+                        <p class="text-slate-600 mb-6 flex-grow">
+                            Since October 7th, the rules of the game have changed. Gil dives deep into the shifting geopolitical landscape, analyzing new alliances, threats, and internal shifts within Israeli society.
+                        </p>
+                        <button onclick="scrollToSection('contact')" class="flex items-center text-slate-900 font-bold hover:text-blue-600 transition group-hover:translate-x-2 duration-300">
+                            Book this lecture <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lecture 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1974&auto=format&fit=crop" alt="Kibbutz Fields" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 p-2 rounded-lg z-20">
+                            <i data-lucide="users" class="text-slate-900 w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">The Kibbutz DNA</h3>
+                        <p class="text-sm font-semibold text-blue-600 mb-4 uppercase tracking-wide">Ideology vs. Necessity</p>
+                        <p class="text-slate-600 mb-6 flex-grow">
+                            What happens when ideology clashes with survival? Explore the evolution of the collective in Israel—from early pioneers to the modern "Startup Nation".
+                        </p>
+                        <button onclick="scrollToSection('contact')" class="flex items-center text-slate-900 font-bold hover:text-blue-600 transition group-hover:translate-x-2 duration-300">
+                            Book this lecture <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lecture 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden group flex flex-col h-full">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1543332164-6e82f355dad7?q=80&w=2070&auto=format&fit=crop" alt="Smiling Crowd" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 p-2 rounded-lg z-20">
+                            <i data-lucide="sun" class="text-slate-900 w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">The "Mr. Sunshine" Story</h3>
+                        <p class="text-sm font-semibold text-blue-600 mb-4 uppercase tracking-wide">Random Encounters & Resilience</p>
+                        <p class="text-slate-600 mb-6 flex-grow">
+                            Humor is a survival mechanism. Gil shares his inspiring personal journey, from accidental encounters with key historical figures to navigating life's toughest hardships with a smile.
+                        </p>
+                        <button onclick="scrollToSection('contact')" class="flex items-center text-slate-900 font-bold hover:text-blue-600 transition group-hover:translate-x-2 duration-300">
+                            Book this lecture <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-12">What Audiences Are Saying</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-slate-800 p-8 rounded-xl relative">
+                    <div class="text-blue-500 text-6xl absolute top-4 left-4 opacity-30">"</div>
+                    <p class="text-lg text-slate-300 italic mb-6 relative z-10">
+                        "Gil has a unique ability to explain complex situations with humor and grace. Our community was glued to their seats for the entire hour."
+                    </p>
+                    <div class="font-bold text-white">- Sarah J., Community Director, New York</div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-xl relative">
+                    <div class="text-blue-500 text-6xl absolute top-4 left-4 opacity-30">"</div>
+                    <p class="text-lg text-slate-300 italic mb-6 relative z-10">
+                        "The most authentic voice we've heard from Israel in years. The Kibbutz story resonated deeply with our students."
+                    </p>
+                    <div class="font-bold text-white">- Prof. Michael R., Hillel University Center</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Bring Insight to Your Audience</h2>
+                <p class="text-lg text-slate-600">
+                    Interested in booking a lecture for your community, university, or organization?
+                    <br />Available for Zoom or In-Person events.
+                </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl shadow-xl p-8 md:p-10">
+                <!-- Success Message (Hidden by default) -->
+                <div id="success-message" class="hidden text-center py-12">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
+                        <i data-lucide="check-circle" class="text-green-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+                    <p class="text-slate-600">Gil will get back to you shortly.</p>
+                </div>
+
+                <!-- Form -->
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Your Name</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-slate-50" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-slate-50" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Organization / Community</label>
+                        <input type="text" name="organization" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-slate-50" placeholder="University Name, Synagogue, etc.">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Message & Details</label>
+                        <textarea name="message" required rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition bg-slate-50" placeholder="Tell me about your event (Date, location, topic interest...)"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/20 text-lg">
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+            
+            <div class="mt-12 flex justify-center space-x-8 text-slate-500">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    <span>gil@mrsunshinetours.com</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span>Available Globally</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; <span id="year"></span> Gil Shemesh Lectures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Smooth Scroll Function
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('hidden');
+                    isMenuOpen = false;
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            }
+        }
+
+        function mobileNavClick(id) {
+            scrollToSection(id);
+        }
+
+        // Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('success-message');
+            
+            // Get form values
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Form Submitted:', data);
+            
+            // Here you would typically send data to a backend or service like Formspree
+            // Example: fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: formData })
+
+            // Show success animation
+            form.style.display = 'none';
+            successMsg.classList.remove('hidden');
+            
+            // Reset after 5 seconds (optional)
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'block';
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
